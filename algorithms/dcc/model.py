@@ -2,7 +2,7 @@ from typing import Dict
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.cuda.amp import autocast
+from torch.amp import autocast
 import dcc.config as config
 
 
@@ -230,7 +230,7 @@ class Network(nn.Module):
     def reset(self):
         self.hidden = None
 
-    @autocast()
+    @autocast("cuda")
     def forward(self, obs, last_act, steps, hidden, relative_pos, comm_mask):
         '''
         used for training

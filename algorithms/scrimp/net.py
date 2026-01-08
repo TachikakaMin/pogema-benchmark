@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.cuda.amp.autocast_mode import autocast
+from torch.amp.autocast_mode import autocast
 
 from scrimp.alg_parameters import NetParameters, EnvParameters
 from scrimp.transformer.encoder_model import TransformerEncoder
@@ -79,7 +79,7 @@ class SCRIMPNet(nn.Module):
             if p.dim() > 1:
                 nn.init.xavier_uniform_(p)
 
-    @autocast()
+    @autocast("cuda")
     def forward(self, obs, vector, input_state, message):
         """run neural network"""
         num_agent = obs.shape[1]

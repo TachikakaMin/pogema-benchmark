@@ -138,8 +138,12 @@ PYBIND11_MODULE(mcts, m) {
 }
 
 <%
+onnx_dir = '/home/yimintan/research/WAFR2026/pogema-benchmark/algorithms/mats_lp/onnxruntime-linux-x64-gpu-1.17.1'
 cfg['libraries'] = ['onnxruntime']
 cfg['sources'] = ['MCTSCost2Go.cpp']
+cfg['include_dirs'] = [onnx_dir + '/include']
+cfg['library_dirs'] = [onnx_dir + '/lib']
 cfg['extra_compile_args'] = ['-std=c++17']
+cfg['extra_link_args'] = ['-Wl,-rpath,' + onnx_dir + '/lib']
 setup_pybind11(cfg)
 %>

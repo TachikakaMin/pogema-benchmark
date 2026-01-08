@@ -33,7 +33,7 @@ class SCRIMPInference:
         self.cur_xy = None
         path_checkpoint = self.cfg.path_to_weights + "/net_checkpoint.pkl"
         self.model = Model(0, torch.device(cfg.device))
-        self.model.network.load_state_dict(torch.load(path_checkpoint, map_location=torch.device(cfg.device))['model'])
+        self.model.network.load_state_dict(torch.load(path_checkpoint, map_location=torch.device(cfg.device), weights_only=False)['model'])
         self.model.network.eval()
         self.offsets = None
         self.global_obs = None
@@ -93,4 +93,4 @@ class SCRIMPInference:
         torch.manual_seed(self.cfg.seed)
         path_checkpoint = self.cfg.path_to_weights + "/net_checkpoint.pkl"
         self.model = Model(0, torch.device(self.cfg.device))
-        self.model.network.load_state_dict(torch.load(path_checkpoint, map_location=torch.device(self.cfg.device))['model'])
+        self.model.network.load_state_dict(torch.load(path_checkpoint, map_location=torch.device(self.cfg.device), weights_only=False)['model'])
