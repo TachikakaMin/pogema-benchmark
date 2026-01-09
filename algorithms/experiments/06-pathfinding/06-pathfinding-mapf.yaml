@@ -1,6 +1,6 @@
 algorithms:
-  Follower:
-    name: Follower
+  # Follower:
+  #   name: Follower
   LaCAM:
     name: LaCAM
 environment:

@@ -1,8 +1,8 @@
 algorithms:
   LaCAM:
     name: LaCAM
-  SCRIMP:
-    name: SCRIMP
+  # SCRIMP:
+  #   name: SCRIMP
   #DCC: # requires obs_radius: 4 in environment
   #  name: DCC
 environment:

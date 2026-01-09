@@ -91,15 +91,15 @@ def main():
     # ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
 
     folder_names = [
-        '01-random',
+        # '01-random',
         # '02-mazes',
-        # '03-warehouse',
-        # '04-movingai',
-        # '05-puzzles',
+        '03-warehouse',
+        '04-movingai',
+        '05-puzzles',
     ]
 
-    # if MODE == "mapf":
-    #     folder_names += ['06-pathfinding']
+    if MODE == "mapf":
+        folder_names += ['06-pathfinding']
 
     for folder in folder_names:
         maps_path = BASE_PATH / folder / "maps.yaml"

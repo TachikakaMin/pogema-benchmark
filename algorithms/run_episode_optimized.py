@@ -165,6 +165,7 @@ def run_episode_with_optimization(
     # Apply global optimization if enabled and trajectories available
     if enable_optimization and infos and len(infos) > 0 and 'trajectories' in infos[0]:
         M = infos[0]['trajectories']
+
         # Validate original trajectory if obstacles available
         if obstacles is not None:
             original_valid = validate_trajectory_quick(M, obstacles)
