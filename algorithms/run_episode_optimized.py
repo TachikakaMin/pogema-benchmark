@@ -165,16 +165,15 @@ def run_episode_with_optimization(
     # Apply global optimization if enabled and trajectories available
     if enable_optimization and infos and len(infos) > 0 and 'trajectories' in infos[0]:
         M = infos[0]['trajectories']
-
         # Validate original trajectory if obstacles available
         if obstacles is not None:
             original_valid = validate_trajectory_quick(M, obstacles)
-            results['original_trajectory_valid'] = original_valid
+            results['original_trajectory_valid'] = 1 if original_valid else 0  # Use int for pandas
 
         try:
             # Import here to avoid import errors if Gurobi not available
             import time
-            from opt_main import solve_collapsed_mapf_from_M
+            from opt_main import solve_collapsed_mapf_from_M, apply_actions_to_trajectory
 
             # Compute original move-only SoC
             original_move_soc = compute_move_only_soc(M)
@@ -183,11 +182,26 @@ def run_episode_with_optimization(
             opt_start_time = time.time()
             summary, chosen_actions = solve_collapsed_mapf_from_M(
                 M,
-                time_limit_sec=optimization_config.get('time_limit_sec', 60.0),
+                time_limit_sec=optimization_config.get('time_limit_sec', 5.0),
                 threads=optimization_config.get('threads', 4),
                 verbose=optimization_config.get('verbose', False)
             )
             opt_elapsed_time = time.time() - opt_start_time
+
+            # Apply actions to get optimized trajectory
+            M_opt = apply_actions_to_trajectory(M, chosen_actions)
+
+            # Validate optimized trajectory
+            if obstacles is not None:
+                optimized_valid = validate_trajectory_quick(M_opt, obstacles)
+                results['optimized_trajectory_valid'] = 1 if optimized_valid else 0
+            else:
+                results['optimized_trajectory_valid'] = -1  # Unknown (no obstacles to check)
+
+            # Verify optimized SoC matches expected
+            actual_optimized_soc = compute_move_only_soc(M_opt)
+            results['actual_optimized_soc'] = actual_optimized_soc
+            results['soc_mismatch'] = 1 if actual_optimized_soc != int(summary['best_min_cost']) else 0
 
             # Add optimization results to metrics
             results['optimization_time'] = opt_elapsed_time
@@ -195,17 +209,63 @@ def run_episode_with_optimization(
             results['optimized_move_soc'] = int(summary['best_min_cost'])
             results['move_soc_saving'] = original_move_soc - int(summary['best_min_cost'])
             results['optimization_status'] = summary['status']
+            results['is_optimal'] = 1 if summary['status'] == 2 else 0  # GRB.OPTIMAL = 2
             results['num_actions_chosen'] = len(chosen_actions)
             results['num_agents'] = summary.get('N', len(M))
             results['trajectory_length'] = summary.get('T', len(M[0]) - 1 if M else 0)
 
-            # ILP constraints guarantee validity
-            results['optimized_trajectory_valid'] = True
+            # Add ILP problem size info
+            results['num_ilp_actions'] = summary.get('num_actions', 0)
+            results['num_ilp_constraints'] = (
+                summary.get('num_excl_within', 0) +
+                summary.get('num_excl_cross', 0) +
+                summary.get('num_deps_raw', 0) +
+                summary.get('num_invalid', 0)
+            )
+
+            # Decode optimization status to human-readable string (for logging only, not in results)
+            status_code = summary['status']
+            status_map = {
+                1: 'LOADED',
+                2: 'OPTIMAL',
+                3: 'INFEASIBLE',
+                4: 'INF_OR_UNBD',
+                5: 'UNBOUNDED',
+                6: 'CUTOFF',
+                7: 'ITERATION_LIMIT',
+                8: 'NODE_LIMIT',
+                9: 'TIME_LIMIT',
+                10: 'SOLUTION_LIMIT',
+                11: 'INTERRUPTED',
+                12: 'NUMERIC',
+                13: 'SUBOPTIMAL',
+            }
+            # Don't add string to results - causes pandas aggregation errors
+            # results['optimization_status_str'] = status_map.get(status_code, f'UNKNOWN({status_code})')
 
         except ImportError as e:
-            results['optimization_error'] = f"Import error: {str(e)}"
+            import traceback
+            print(f"[OPTIMIZATION ERROR] Import error: {str(e)}")
+            traceback.print_exc()
+            # Don't add string to results - causes pandas aggregation errors
+            results['optimization_error_code'] = 1  # 1 = import error
         except Exception as e:
-            results['optimization_error'] = str(e)
+            import traceback
+            print(f"[OPTIMIZATION ERROR] Exception: {str(e)}")
+            traceback.print_exc()
+            # Don't add string to results - causes pandas aggregation errors
+            results['optimization_error_code'] = 2  # 2 = other error
+
+    else:
+        # Debug: why optimization was skipped
+        if not enable_optimization:
+            print("[OPTIMIZATION] Skipped: enable_optimization=False")
+        elif not infos:
+            print("[OPTIMIZATION] Skipped: infos is empty")
+        elif len(infos) == 0:
+            print("[OPTIMIZATION] Skipped: len(infos) == 0")
+        elif 'trajectories' not in infos[0]:
+            print(f"[OPTIMIZATION] Skipped: 'trajectories' not in infos[0]. Keys: {list(infos[0].keys())}")
 
     return results
 

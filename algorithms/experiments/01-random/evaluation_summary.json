@@ -538,5 +538,1185 @@
       "seed": 0
     },
     "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 22,
+      "SoC": 82,
+      "makespan": 22,
+      "avg_agents_density": 0.027459019172685683,
+      "runtime": 0.00625436007976532,
+      "original_trajectory_valid": true,
+      "original_move_soc": 82,
+      "optimized_move_soc": 82,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 22,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-640",
+      "map_name": "validation-random-seed-000",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 72,
+      "makespan": 19,
+      "avg_agents_density": 0.027261715436207083,
+      "runtime": 0.005863766185939312,
+      "original_trajectory_valid": true,
+      "original_move_soc": 72,
+      "optimized_move_soc": 72,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-641",
+      "map_name": "validation-random-seed-001",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 78,
+      "makespan": 19,
+      "avg_agents_density": 0.03300379211444417,
+      "runtime": 1.0061231078580022,
+      "original_trajectory_valid": true,
+      "original_move_soc": 78,
+      "optimized_move_soc": 78,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-642",
+      "map_name": "validation-random-seed-002",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 24,
+      "SoC": 141,
+      "makespan": 24,
+      "avg_agents_density": 0.030058660224284967,
+      "runtime": 0.005797438323497772,
+      "original_trajectory_valid": true,
+      "original_move_soc": 141,
+      "optimized_move_soc": 141,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 6,
+      "trajectory_length": 24,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-643",
+      "map_name": "validation-random-seed-003",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 32,
+      "SoC": 113,
+      "makespan": 32,
+      "avg_agents_density": 0.031224444465655962,
+      "runtime": 0.027334770187735558,
+      "original_trajectory_valid": true,
+      "original_move_soc": 113,
+      "optimized_move_soc": 113,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 32,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-644",
+      "map_name": "validation-random-seed-004",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 21,
+      "SoC": 104,
+      "makespan": 21,
+      "avg_agents_density": 0.0324630926870763,
+      "runtime": 1.006094416603446,
+      "original_trajectory_valid": true,
+      "original_move_soc": 101,
+      "optimized_move_soc": 101,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 21,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-645",
+      "map_name": "validation-random-seed-005",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 76,
+      "makespan": 19,
+      "avg_agents_density": 0.03315625599591455,
+      "runtime": 0.004561936482787132,
+      "original_trajectory_valid": true,
+      "original_move_soc": 76,
+      "optimized_move_soc": 76,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-646",
+      "map_name": "validation-random-seed-006",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 35,
+      "SoC": 155,
+      "makespan": 35,
+      "avg_agents_density": 0.0367170923953187,
+      "runtime": 0.007902649231255054,
+      "original_trajectory_valid": true,
+      "original_move_soc": 155,
+      "optimized_move_soc": 155,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 35,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-647",
+      "map_name": "validation-random-seed-007",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 33,
+      "SoC": 162,
+      "makespan": 33,
+      "avg_agents_density": 0.03100193140799988,
+      "runtime": 1.0061368541792035,
+      "original_trajectory_valid": true,
+      "original_move_soc": 162,
+      "optimized_move_soc": 162,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 33,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-648",
+      "map_name": "validation-random-seed-008",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 28,
+      "SoC": 120,
+      "makespan": 28,
+      "avg_agents_density": 0.030635371199246208,
+      "runtime": 0.006671315059065819,
+      "original_trajectory_valid": true,
+      "original_move_soc": 120,
+      "optimized_move_soc": 120,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 28,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-649",
+      "map_name": "validation-random-seed-009",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 45,
+      "SoC": 1484,
+      "makespan": 45,
+      "avg_agents_density": 0.15590545123174385,
+      "runtime": 7.9921669736504555,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.023937225341796875,
+      "original_move_soc": 1199,
+      "optimized_move_soc": 1091,
+      "move_soc_saving": 108,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 30,
+      "num_agents": 64,
+      "trajectory_length": 45,
+      "num_ilp_actions": 567,
+      "num_ilp_constraints": 1345,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-640",
+      "map_name": "validation-random-seed-000",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 85,
+      "SoC": 2734,
+      "makespan": 85,
+      "avg_agents_density": 0.20624892278631354,
+      "runtime": 33.37862368673086,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.3086097240447998,
+      "original_move_soc": 1814,
+      "optimized_move_soc": 1366,
+      "move_soc_saving": 448,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 120,
+      "num_agents": 64,
+      "trajectory_length": 85,
+      "num_ilp_actions": 2681,
+      "num_ilp_constraints": 19098,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-641",
+      "map_name": "validation-random-seed-001",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 35,
+      "SoC": 1272,
+      "makespan": 35,
+      "avg_agents_density": 0.17239857854952287,
+      "runtime": 7.774755905382335,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.0128936767578125,
+      "original_move_soc": 1057,
+      "optimized_move_soc": 991,
+      "move_soc_saving": 66,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 30,
+      "num_agents": 63,
+      "trajectory_length": 35,
+      "num_ilp_actions": 488,
+      "num_ilp_constraints": 554,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-642",
+      "map_name": "validation-random-seed-002",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 38,
+      "SoC": 1415,
+      "makespan": 38,
+      "avg_agents_density": 0.1712186106069212,
+      "runtime": 12.193152908235788,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.030050277709960938,
+      "original_move_soc": 1198,
+      "optimized_move_soc": 1082,
+      "move_soc_saving": 116,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 30,
+      "num_agents": 64,
+      "trajectory_length": 38,
+      "num_ilp_actions": 595,
+      "num_ilp_constraints": 2262,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-643",
+      "map_name": "validation-random-seed-003",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 0.96875,
+      "CSR": 0.0,
+      "ep_length": 128,
+      "SoC": 2362,
+      "makespan": 128,
+      "avg_agents_density": 0.16410659004376227,
+      "runtime": 28.039432340301573,
+      "original_trajectory_valid": 1,
+      "optimization_time": 7.488998651504517,
+      "original_move_soc": 1421,
+      "optimized_move_soc": 1015,
+      "move_soc_saving": 406,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 72,
+      "num_agents": 64,
+      "trajectory_length": 128,
+      "num_ilp_actions": 3307,
+      "num_ilp_constraints": 448434,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-644",
+      "map_name": "validation-random-seed-004",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 93,
+      "SoC": 2034,
+      "makespan": 93,
+      "avg_agents_density": 0.17291023274124087,
+      "runtime": 20.75957035087049,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.059668779373168945,
+      "original_move_soc": 1437,
+      "optimized_move_soc": 1205,
+      "move_soc_saving": 232,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 72,
+      "num_agents": 64,
+      "trajectory_length": 93,
+      "num_ilp_actions": 1039,
+      "num_ilp_constraints": 5800,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-645",
+      "map_name": "validation-random-seed-005",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 36,
+      "SoC": 1342,
+      "makespan": 36,
+      "avg_agents_density": 0.18014976324227808,
+      "runtime": 13.532425823621452,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.012868881225585938,
+      "original_move_soc": 1083,
+      "optimized_move_soc": 1005,
+      "move_soc_saving": 78,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 27,
+      "num_agents": 64,
+      "trajectory_length": 36,
+      "num_ilp_actions": 450,
+      "num_ilp_constraints": 467,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-646",
+      "map_name": "validation-random-seed-006",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 59,
+      "SoC": 2021,
+      "makespan": 59,
+      "avg_agents_density": 0.1997404096368886,
+      "runtime": 24.943402254022658,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.05838727951049805,
+      "original_move_soc": 1538,
+      "optimized_move_soc": 1250,
+      "move_soc_saving": 288,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 86,
+      "num_agents": 64,
+      "trajectory_length": 59,
+      "num_ilp_actions": 1472,
+      "num_ilp_constraints": 4866,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-647",
+      "map_name": "validation-random-seed-007",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 0.875,
+      "CSR": 0.0,
+      "ep_length": 128,
+      "SoC": 4081,
+      "makespan": 128,
+      "avg_agents_density": 0.2023168433188251,
+      "runtime": 54.96566195785999,
+      "original_trajectory_valid": 1,
+      "optimization_time": 2.6226696968078613,
+      "original_move_soc": 2496,
+      "optimized_move_soc": 1740,
+      "move_soc_saving": 756,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 153,
+      "num_agents": 64,
+      "trajectory_length": 128,
+      "num_ilp_actions": 4951,
+      "num_ilp_constraints": 193138,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-648",
+      "map_name": "validation-random-seed-008",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 36,
+      "SoC": 1250,
+      "makespan": 36,
+      "avg_agents_density": 0.17061026976570667,
+      "runtime": 15.03456708509475,
+      "original_trajectory_valid": 1,
+      "optimization_time": 0.01472163200378418,
+      "original_move_soc": 1054,
+      "optimized_move_soc": 990,
+      "move_soc_saving": 64,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 26,
+      "num_agents": 63,
+      "trajectory_length": 36,
+      "num_ilp_actions": 487,
+      "num_ilp_constraints": 534,
+      "optimized_trajectory_valid": 1
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-649",
+      "map_name": "validation-random-seed-009",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 22,
+      "SoC": 82,
+      "makespan": 22,
+      "avg_agents_density": 0.027459019172685683,
+      "runtime": 0.00625436007976532,
+      "original_trajectory_valid": true,
+      "original_move_soc": 82,
+      "optimized_move_soc": 82,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 22,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-640",
+      "map_name": "validation-random-seed-000",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 72,
+      "makespan": 19,
+      "avg_agents_density": 0.027261715436207083,
+      "runtime": 0.005863766185939312,
+      "original_trajectory_valid": true,
+      "original_move_soc": 72,
+      "optimized_move_soc": 72,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-641",
+      "map_name": "validation-random-seed-001",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 78,
+      "makespan": 19,
+      "avg_agents_density": 0.03300379211444417,
+      "runtime": 1.0061231078580022,
+      "original_trajectory_valid": true,
+      "original_move_soc": 78,
+      "optimized_move_soc": 78,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-642",
+      "map_name": "validation-random-seed-002",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 24,
+      "SoC": 141,
+      "makespan": 24,
+      "avg_agents_density": 0.030058660224284967,
+      "runtime": 0.005797438323497772,
+      "original_trajectory_valid": true,
+      "original_move_soc": 141,
+      "optimized_move_soc": 141,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 6,
+      "trajectory_length": 24,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-643",
+      "map_name": "validation-random-seed-003",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 32,
+      "SoC": 113,
+      "makespan": 32,
+      "avg_agents_density": 0.031224444465655962,
+      "runtime": 0.027334770187735558,
+      "original_trajectory_valid": true,
+      "original_move_soc": 113,
+      "optimized_move_soc": 113,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 32,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-644",
+      "map_name": "validation-random-seed-004",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 21,
+      "SoC": 104,
+      "makespan": 21,
+      "avg_agents_density": 0.0324630926870763,
+      "runtime": 1.006094416603446,
+      "original_trajectory_valid": true,
+      "original_move_soc": 101,
+      "optimized_move_soc": 101,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 21,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-645",
+      "map_name": "validation-random-seed-005",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 19,
+      "SoC": 76,
+      "makespan": 19,
+      "avg_agents_density": 0.03315625599591455,
+      "runtime": 0.004561936482787132,
+      "original_trajectory_valid": true,
+      "original_move_soc": 76,
+      "optimized_move_soc": 76,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 19,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-646",
+      "map_name": "validation-random-seed-006",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 35,
+      "SoC": 155,
+      "makespan": 35,
+      "avg_agents_density": 0.0367170923953187,
+      "runtime": 0.007902649231255054,
+      "original_trajectory_valid": true,
+      "original_move_soc": 155,
+      "optimized_move_soc": 155,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 35,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-647",
+      "map_name": "validation-random-seed-007",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 33,
+      "SoC": 162,
+      "makespan": 33,
+      "avg_agents_density": 0.03100193140799988,
+      "runtime": 1.0061368541792035,
+      "original_trajectory_valid": true,
+      "original_move_soc": 162,
+      "optimized_move_soc": 162,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 33,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-648",
+      "map_name": "validation-random-seed-008",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 28,
+      "SoC": 120,
+      "makespan": 28,
+      "avg_agents_density": 0.030635371199246208,
+      "runtime": 0.006671315059065819,
+      "original_trajectory_valid": true,
+      "original_move_soc": 120,
+      "optimized_move_soc": 120,
+      "move_soc_saving": 0,
+      "optimization_status": 2,
+      "num_actions_chosen": 0,
+      "num_agents": 7,
+      "trajectory_length": 28,
+      "optimized_trajectory_valid": true
+    },
+    "env_grid_search": {
+      "num_agents": 8,
+      "scenario": "Scenario-649",
+      "map_name": "validation-random-seed-009",
+      "seed": 0
+    },
+    "algorithm": "LaCAM"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 42,
+      "SoC": 1414,
+      "makespan": 42,
+      "avg_agents_density": 0.162019832085594,
+      "runtime": 8.003947202116251,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1095,
+      "soc_mismatch": 0,
+      "optimization_time": 0.020484209060668945,
+      "original_move_soc": 1197,
+      "optimized_move_soc": 1095,
+      "move_soc_saving": 102,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 32,
+      "num_agents": 64,
+      "trajectory_length": 42,
+      "num_ilp_actions": 527,
+      "num_ilp_constraints": 1208
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-640",
+      "map_name": "validation-random-seed-000",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 93,
+      "SoC": 3129,
+      "makespan": 93,
+      "avg_agents_density": 0.21606115354320984,
+      "runtime": 47.73774552624673,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1478,
+      "soc_mismatch": 0,
+      "optimization_time": 0.5330080986022949,
+      "original_move_soc": 2016,
+      "optimized_move_soc": 1478,
+      "move_soc_saving": 538,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 138,
+      "num_agents": 64,
+      "trajectory_length": 93,
+      "num_ilp_actions": 3530,
+      "num_ilp_constraints": 31460
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-641",
+      "map_name": "validation-random-seed-001",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 51,
+      "SoC": 1532,
+      "makespan": 51,
+      "avg_agents_density": 0.1696631128404591,
+      "runtime": 9.26501630153507,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 983,
+      "soc_mismatch": 0,
+      "optimization_time": 0.04349064826965332,
+      "original_move_soc": 1109,
+      "optimized_move_soc": 983,
+      "move_soc_saving": 126,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 41,
+      "num_agents": 64,
+      "trajectory_length": 51,
+      "num_ilp_actions": 847,
+      "num_ilp_constraints": 3413
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-642",
+      "map_name": "validation-random-seed-002",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 38,
+      "SoC": 1417,
+      "makespan": 38,
+      "avg_agents_density": 0.17307106378267778,
+      "runtime": 15.829858253709972,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1096,
+      "soc_mismatch": 0,
+      "optimization_time": 0.012798547744750977,
+      "original_move_soc": 1186,
+      "optimized_move_soc": 1096,
+      "move_soc_saving": 90,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 37,
+      "num_agents": 64,
+      "trajectory_length": 38,
+      "num_ilp_actions": 470,
+      "num_ilp_constraints": 476
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-643",
+      "map_name": "validation-random-seed-003",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 0.953125,
+      "CSR": 0.0,
+      "ep_length": 128,
+      "SoC": 2605,
+      "makespan": 128,
+      "avg_agents_density": 0.16667965029953033,
+      "runtime": 42.26277683023363,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1062,
+      "soc_mismatch": 0,
+      "optimization_time": 5.029952764511108,
+      "original_move_soc": 1462,
+      "optimized_move_soc": 1062,
+      "move_soc_saving": 400,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 68,
+      "num_agents": 64,
+      "trajectory_length": 128,
+      "num_ilp_actions": 3096,
+      "num_ilp_constraints": 270545
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-644",
+      "map_name": "validation-random-seed-004",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 54,
+      "SoC": 2028,
+      "makespan": 54,
+      "avg_agents_density": 0.18565795397395077,
+      "runtime": 17.593204526230693,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1203,
+      "soc_mismatch": 0,
+      "optimization_time": 0.0559847354888916,
+      "original_move_soc": 1475,
+      "optimized_move_soc": 1203,
+      "move_soc_saving": 272,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 64,
+      "num_agents": 64,
+      "trajectory_length": 54,
+      "num_ilp_actions": 1223,
+      "num_ilp_constraints": 4058
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-645",
+      "map_name": "validation-random-seed-005",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 48,
+      "SoC": 1471,
+      "makespan": 48,
+      "avg_agents_density": 0.17863321921256461,
+      "runtime": 16.6725111361593,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1015,
+      "soc_mismatch": 0,
+      "optimization_time": 0.021015405654907227,
+      "original_move_soc": 1163,
+      "optimized_move_soc": 1015,
+      "move_soc_saving": 148,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 47,
+      "num_agents": 64,
+      "trajectory_length": 48,
+      "num_ilp_actions": 584,
+      "num_ilp_constraints": 892
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-646",
+      "map_name": "validation-random-seed-006",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 94,
+      "SoC": 2376,
+      "makespan": 94,
+      "avg_agents_density": 0.18839295039864806,
+      "runtime": 30.12338540609926,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1276,
+      "soc_mismatch": 0,
+      "optimization_time": 0.23559808731079102,
+      "original_move_soc": 1600,
+      "optimized_move_soc": 1276,
+      "move_soc_saving": 324,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 83,
+      "num_agents": 64,
+      "trajectory_length": 94,
+      "num_ilp_actions": 1689,
+      "num_ilp_constraints": 4488
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-647",
+      "map_name": "validation-random-seed-007",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 0.96875,
+      "CSR": 0.0,
+      "ep_length": 128,
+      "SoC": 3899,
+      "makespan": 128,
+      "avg_agents_density": 0.20863539656441935,
+      "runtime": 56.18667416740209,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 1927,
+      "soc_mismatch": 0,
+      "optimization_time": 8.898772478103638,
+      "original_move_soc": 2413,
+      "optimized_move_soc": 1927,
+      "move_soc_saving": 486,
+      "optimization_status": 9,
+      "is_optimal": 0,
+      "num_actions_chosen": 177,
+      "num_agents": 64,
+      "trajectory_length": 128,
+      "num_ilp_actions": 4608,
+      "num_ilp_constraints": 535039
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-648",
+      "map_name": "validation-random-seed-008",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
+  },
+  {
+    "metrics": {
+      "ISR": 1.0,
+      "CSR": 1.0,
+      "ep_length": 42,
+      "SoC": 1305,
+      "makespan": 42,
+      "avg_agents_density": 0.16721651256137146,
+      "runtime": 14.728473148308694,
+      "original_trajectory_valid": 1,
+      "optimized_trajectory_valid": 0,
+      "actual_optimized_soc": 986,
+      "soc_mismatch": 0,
+      "optimization_time": 0.015622615814208984,
+      "original_move_soc": 1054,
+      "optimized_move_soc": 986,
+      "move_soc_saving": 68,
+      "optimization_status": 2,
+      "is_optimal": 1,
+      "num_actions_chosen": 24,
+      "num_agents": 64,
+      "trajectory_length": 42,
+      "num_ilp_actions": 492,
+      "num_ilp_constraints": 616
+    },
+    "env_grid_search": {
+      "num_agents": 64,
+      "scenario": "Scenario-649",
+      "map_name": "validation-random-seed-009",
+      "seed": 0
+    },
+    "algorithm": "SCRIMP"
   }
 ]

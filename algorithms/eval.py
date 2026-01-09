@@ -33,7 +33,7 @@ ENABLE_GLOBAL_OPTIMIZATION = True
 OPTIMIZATION_CONFIG = {
     'time_limit_sec': 5.0,
     'threads': 8,
-    'verbose': False,
+    'verbose': True,
 }
 
 
