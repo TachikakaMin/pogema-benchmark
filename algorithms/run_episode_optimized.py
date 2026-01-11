@@ -174,6 +174,8 @@ def run_episode_with_optimization(
         try:
             # Import here to avoid import errors if Gurobi not available
             import time
+            import pickle
+            import os
             from opt_main import solve_collapsed_mapf_from_M, apply_actions_to_trajectory
 
             # Compute original move-only SoC

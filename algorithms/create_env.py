@@ -43,11 +43,16 @@ class ProvideFutureTargetsWrapper(Wrapper):
         return observations, infos
 
 def create_env_base(config):
-    env = pogema_v0(grid_config=config)
+    # Handle both config types:
+    # - toolbox's Environment inherits from GridConfig directly
+    # - Follower's Environment has a grid_config attribute
+    grid_config = getattr(config, 'grid_config', config)
+    env = pogema_v0(grid_config=grid_config)
     env = AgentsDensityWrapper(env)
     env = ProvideFutureTargetsWrapper(env)
-    env = MultiMapWrapper(env)
-    if config.with_animation:
+    if getattr(config, 'use_maps', False):
+        env = MultiMapWrapper(env)
+    if getattr(config, 'with_animation', False):
         logger.debug('Wrapping environment with AnimationMonitor')
         env = AnimationMonitor(env, AnimationConfig(save_every_idx_episode=None))
 

@@ -1,8 +1,10 @@
 algorithms:
   # Follower:
   #   name: Follower
-  LaCAM:
-    name: LaCAM
+  # LaCAM:
+  #   name: LaCAM
+  SCRIMP:
+    name: SCRIMP
 environment:
   collision_system: soft
   map_name:

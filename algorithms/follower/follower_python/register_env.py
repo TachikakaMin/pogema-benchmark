@@ -70,7 +70,8 @@ def make_env(full_env_name, cfg=None, env_config=None, render_mode=None):
     p_config = Experiment(**vars(cfg))
     environment_config = p_config.environment
     preprocessing_config = p_config.preprocessing
-    # todo make this code simpler
+    # Disable use_maps for inference env creation (maps may not be registered in worker)
+    environment_config.use_maps = False
 
     if environment_config.agent_bins is not None and environment_config.target_num_agents is not None:
         if environment_config.env_id is None:
