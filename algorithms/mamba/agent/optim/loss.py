@@ -1,6 +1,13 @@
 import numpy as np
 import torch
-import wandb
+try:
+    import wandb
+except Exception:
+    class _WandbStub:
+        def log(self, *args, **kwargs):
+            return None
+
+    wandb = _WandbStub()
 import torch.nn.functional as F
 
 from mamba.agent.optim.utils import (

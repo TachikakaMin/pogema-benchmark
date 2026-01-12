@@ -1,5 +1,9 @@
 import pogema
 from pogema import AnimationMonitor, AnimationConfig
+try:
+    from pogema import GridConfig
+except Exception:
+    from pogema.grid_config import GridConfig
 
 from mamba.configs.Config import Config
 from mamba.env.pogema.example import (
@@ -36,27 +40,33 @@ class PogemaConfig(EnvConfig):
         self.use_follower = use_follower
         self.RENDER = False
         self.SAVE_DIR = None
+
+        def _grid_config_builder(size, density):
+            def _make(**kwargs):
+                return GridConfig(size=size, density=density, **kwargs)
+            return _make
+
         self.str2env = {
             "simple_benchmark": benchmark_pogema_env,
             "simple_benchmark_follower": follower_pogema_env,
             "mazes_benchmark_follower": follower_pogema_env_mazes,
             "benchmark_follower_pogema_env_mazes_random": follower_pogema_env_mazes_random,
-            "Easy8x8": pogema.Easy8x8,
-            "Normal8x8": pogema.Normal8x8,
-            "Hard8x8": pogema.Hard8x8,
-            "ExtraHard8x8": pogema.ExtraHard8x8,
-            "Easy16x16": pogema.Easy16x16,
-            "Normal16x16": pogema.Normal16x16,
-            "Hard16x16": pogema.Hard16x16,
-            "ExtraHard16x16": pogema.ExtraHard16x16,
-            "Easy32x32": pogema.Easy32x32,
-            "Normal32x32": pogema.Normal32x32,
-            "Hard32x32": pogema.Hard32x32,
-            "ExtraHard32x32": pogema.ExtraHard32x32,
-            "Easy64x64": pogema.Easy64x64,
-            "Normal64x64": pogema.Normal64x64,
-            "Hard64x64": pogema.Hard64x64,
-            "ExtraHard64x64": pogema.ExtraHard64x64,
+            "Easy8x8": getattr(pogema, "Easy8x8", _grid_config_builder(8, 0.2)),
+            "Normal8x8": getattr(pogema, "Normal8x8", _grid_config_builder(8, 0.3)),
+            "Hard8x8": getattr(pogema, "Hard8x8", _grid_config_builder(8, 0.4)),
+            "ExtraHard8x8": getattr(pogema, "ExtraHard8x8", _grid_config_builder(8, 0.5)),
+            "Easy16x16": getattr(pogema, "Easy16x16", _grid_config_builder(16, 0.2)),
+            "Normal16x16": getattr(pogema, "Normal16x16", _grid_config_builder(16, 0.3)),
+            "Hard16x16": getattr(pogema, "Hard16x16", _grid_config_builder(16, 0.4)),
+            "ExtraHard16x16": getattr(pogema, "ExtraHard16x16", _grid_config_builder(16, 0.5)),
+            "Easy32x32": getattr(pogema, "Easy32x32", _grid_config_builder(32, 0.2)),
+            "Normal32x32": getattr(pogema, "Normal32x32", _grid_config_builder(32, 0.3)),
+            "Hard32x32": getattr(pogema, "Hard32x32", _grid_config_builder(32, 0.4)),
+            "ExtraHard32x32": getattr(pogema, "ExtraHard32x32", _grid_config_builder(32, 0.5)),
+            "Easy64x64": getattr(pogema, "Easy64x64", _grid_config_builder(64, 0.2)),
+            "Normal64x64": getattr(pogema, "Normal64x64", _grid_config_builder(64, 0.3)),
+            "Hard64x64": getattr(pogema, "Hard64x64", _grid_config_builder(64, 0.4)),
+            "ExtraHard64x64": getattr(pogema, "ExtraHard64x64", _grid_config_builder(64, 0.5)),
         }
         self.on_target = on_target
 

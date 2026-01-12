@@ -14,10 +14,14 @@ Usage:
 """
 
 import sys
+from pathlib import Path
 from typing import List, Tuple, Any, Dict, Optional
 
 # Add path for opt_main.py
-sys.path.insert(0, '/home/yimintan/research/WAFR2026')
+repo_root = Path(__file__).resolve().parents[2]
+repo_root_str = str(repo_root)
+if repo_root_str not in sys.path:
+    sys.path.insert(0, repo_root_str)
 
 from pogema_toolbox.results_holder import ResultsHolder
 

@@ -3,10 +3,12 @@ algorithms:
   #   name: LaCAM
   # SCRIMP:
   #   name: SCRIMP
-  #DCC: # requires obs_radius: 4 in environment
+  # DCC: # requires obs_radius: 4 in environment
   #  name: DCC
   Follower:
     name: Follower
+  MAMBA:
+    name: MAMBA
 environment:
   collision_system: soft
   map_name: wfi_warehouse
@@ -25,7 +27,7 @@ environment:
       95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
       112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]
   with_animation: false
-  #obs_radius: 4 # required for DCC
+  # obs_radius: 4 # required for DCC
 results_views:
   03-warehouse-runtime:
     font_size: 8

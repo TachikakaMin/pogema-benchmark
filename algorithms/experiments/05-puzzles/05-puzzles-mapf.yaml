@@ -3,10 +3,12 @@ algorithms:
   #   name: LaCAM
   # SCRIMP:
   #   name: SCRIMP
-  #DCC: # requires obs_radius: 4 in environment
+  # DCC: # requires obs_radius: 4 in environment
   #  name: DCC
   Follower:
     name: Follower
+  MAMBA:
+    name: MAMBA
 environment:
   collision_system: soft
   map_name:
@@ -22,7 +24,7 @@ environment:
   seed:
     grid_search: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   with_animation: false
-  #obs_radius: 4 # required for DCC
+  # obs_radius: 4 # required for DCC
 results_views:
   TabularView1:
     drop_keys: [seed, map_name, ISR, ep_length, runtime, avg_agents_density, makespan,

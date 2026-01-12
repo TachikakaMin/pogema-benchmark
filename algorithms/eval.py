@@ -1,6 +1,10 @@
+import os
 from pathlib import Path
 from typing import Literal
 import json
+
+os.environ.setdefault("RAY_DISABLE_DASHBOARD", "1")
+os.environ.setdefault("RAY_DASHBOARD_ENABLED", "0")
 
 import yaml
 from pogema_toolbox.evaluator import evaluation
@@ -18,6 +22,9 @@ from lacam.inference import LacamInference, LacamInferenceConfig
 from mats_lp.inference import MATS_LPConfig, MATS_LPInference
 from dcc.inference import DCCInference, DCCInferenceConfig
 from sillm.inference import SILLMInference, SILLMInferenceConfig
+from mamba.inference.inference_config import MAMBAInferenceConfig
+from mamba.inference.utils import MAMBAInference
+from mamba.preprocessing import mamba_preprocessor
 
 # Global optimization imports
 from functools import partial
@@ -90,11 +97,11 @@ def main():
     ToolboxRegistry.register_algorithm('MATS-LP', MATS_LPInference, MATS_LPConfig)
     ToolboxRegistry.register_algorithm('DCC', DCCInference, DCCInferenceConfig)
     ToolboxRegistry.register_algorithm('SILLM', SILLMInference, SILLMInferenceConfig)
-    # ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
+    ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
 
     folder_names = [
-        # '01-random',
-        # '02-mazes',
+        '01-random',
+        '02-mazes',
         '03-warehouse',
         '04-movingai',
         '05-puzzles',

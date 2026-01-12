@@ -14,7 +14,7 @@ class DCCInferenceConfig(AlgoBase, extra=Extra.forbid):
         'multiprocessing', 'dask', 'sequential', 'balanced_multiprocessing', 'balanced_dask',
         'balanced_dask_gpu'] = 'balanced_dask'
     device: str = 'cpu'
-    num_process: int = 8
+    num_process: int = 4
     
     
 class DCCInference:
@@ -67,7 +67,7 @@ class DCCInference:
         self.positions = None
         self.h_map = None
         self.agent = Network()
-        state_dict = torch.load(self.cfg.path_to_weights)
+        state_dict = torch.load(self.cfg.path_to_weights, map_location=self.cfg.device, weights_only=True)
         self.agent.load_state_dict(state_dict)
         self.agent.to(self.cfg.device)
         self.agent.eval()

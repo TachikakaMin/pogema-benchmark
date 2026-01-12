@@ -55,6 +55,7 @@ class MAMBAInference:
             save_every=None,
             checkpoint_path=config.path_to_weights,
             evaluate=True,
+            use_ray=config.use_ray,
         )
 
         self.rnn_states = None
@@ -74,4 +75,3 @@ class MAMBAInference:
 
     def get_model_parameters(self):
         return self.count_parameters(self.net)
-

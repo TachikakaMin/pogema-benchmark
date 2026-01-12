@@ -5,6 +5,8 @@ algorithms:
   #   name: LaCAM
   SCRIMP:
     name: SCRIMP
+  DCC: # requires obs_radius: 4 in environment
+    name: DCC
 environment:
   collision_system: soft
   map_name:
@@ -18,6 +20,7 @@ environment:
   seed:
     grid_search: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
   with_animation: false
+  obs_radius: 4 # required for DCC
 results_views:
   TabularMakespan:
     drop_keys: [seed, ISR, CSR, SoC, runtime, ep_length, avg_agents_density, map_name,

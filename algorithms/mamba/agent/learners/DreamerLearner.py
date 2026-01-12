@@ -214,7 +214,14 @@ class DreamerLearner:
 
     def load_params(self, checkpoint_path):
         try:
-            params = torch.load(checkpoint_path, map_location=self.config.DEVICE)
+            try:
+                params = torch.load(
+                    checkpoint_path,
+                    map_location=self.config.DEVICE,
+                    weights_only=True,
+                )
+            except TypeError:
+                params = torch.load(checkpoint_path, map_location=self.config.DEVICE)
         except Exception as e:
             print(
                 f"Unable to load the learner params from {checkpoint_path} due to:\n{e}"

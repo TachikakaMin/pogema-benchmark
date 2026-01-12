@@ -1,5 +1,9 @@
 from collections import defaultdict
 from copy import deepcopy
+import os
+
+os.environ.setdefault("RAY_DISABLE_DASHBOARD", "1")
+os.environ.setdefault("RAY_DASHBOARD_ENABLED", "0")
 
 import numpy as np
 import ray
@@ -8,8 +12,7 @@ import torch
 from mamba.environments import Env
 
 
-@ray.remote
-class DreamerWorker:
+class DreamerWorkerCore:
 
     def __init__(self, idx, env_config, controller_config):
         self.runner_handle = idx
@@ -141,7 +144,7 @@ class DreamerWorker:
         observations = torch.cat(observations).unsqueeze(0)
         num_agents = observations.shape[1]
         actions = self.controller.step(observations, None, None)
-        return actions.argmax(-1).numpy().reshape(1, num_agents)
+        return actions.argmax(-1).detach().cpu().numpy().reshape(num_agents)
 
     def reset(self, dreamer_params):
         self.controller = self.controller_config.create_controller()
@@ -242,3 +245,8 @@ class DreamerWorker:
             **reward,
             "steps_done": steps_done,
         }
+
+
+@ray.remote
+class DreamerWorker(DreamerWorkerCore):
+    pass

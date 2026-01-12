@@ -1,15 +1,57 @@
 import os
+import logging
 from datetime import datetime
 
+os.environ.setdefault("RAY_DISABLE_DASHBOARD", "1")
+os.environ.setdefault("RAY_DASHBOARD_ENABLED", "0")
 import ray
 
-import wandb
-from mamba.agent.workers.DreamerWorker import DreamerWorker
+def _disable_ray_dashboard():
+    try:
+        import ray._private.services as ray_services
+    except Exception:
+        return
+    if getattr(ray_services, "_wa_dashboard_patched", False):
+        return
+
+    def _noop_start_api_server(*args, **kwargs):
+        return None, None
+
+    ray_services.start_api_server = _noop_start_api_server
+    ray_services._wa_dashboard_patched = True
+
+try:
+    import wandb
+except Exception:
+    class _WandbStub:
+        def log(self, *args, **kwargs):
+            return None
+
+        def define_metric(self, *args, **kwargs):
+            return None
+
+    wandb = _WandbStub()
+from mamba.agent.workers.DreamerWorker import DreamerWorker, DreamerWorkerCore
 
 
 class DreamerServer:
     def __init__(self, n_workers, env_config, controller_config, model):
-        ray.init()
+        if not ray.is_initialized():
+            logging.getLogger("ray").setLevel(logging.ERROR)
+            _disable_ray_dashboard()
+            try:
+                ray.init(
+                    ignore_reinit_error=True,
+                    include_dashboard=False,
+                    log_to_driver=False,
+                    logging_level=logging.ERROR,
+                )
+            except TypeError:
+                ray.init(
+                    ignore_reinit_error=True,
+                    include_dashboard=False,
+                    log_to_driver=False,
+                )
 
         self.workers = [
             DreamerWorker.remote(i, env_config, controller_config)
@@ -28,6 +70,26 @@ class DreamerServer:
         return recvs
 
 
+class LocalDreamerServer:
+    def __init__(self, n_workers, env_config, controller_config, model):
+        self.workers = [
+            DreamerWorkerCore(i, env_config, controller_config)
+            for i in range(n_workers)
+        ]
+        self.non_remote = self.workers[0]
+        self._models = [model for _ in range(n_workers)]
+        self._next_idx = 0
+
+    def append(self, idx, update):
+        if 0 <= idx < len(self._models):
+            self._models[idx] = update
+
+    def run(self):
+        idx = self._next_idx
+        self._next_idx = (self._next_idx + 1) % len(self.workers)
+        return self.workers[idx].run(self._models[idx])
+
+
 class DreamerRunner:
 
     def __init__(
@@ -41,8 +103,10 @@ class DreamerRunner:
         save_every,
         checkpoint_path,
         evaluate=False,
+        use_ray=True,
     ):
         self.n_workers = n_workers
+        self.use_ray = use_ray
         wandb_config["enable"] = not evaluate
         self.learner = learner_config.create_learner(wandb_config)
         if checkpoint_path is not None and os.path.exists(checkpoint_path):
@@ -66,17 +130,27 @@ class DreamerRunner:
             env_config[0].SAVE_DIR = anim_dir
             self.rnn_states = None
 
-        self.server = DreamerServer(
-            n_workers, env_config, controller_config, self.learner.params()
-        )
+        if self.use_ray:
+            self.server = DreamerServer(
+                n_workers, env_config, controller_config, self.learner.params()
+            )
+        else:
+            self.server = LocalDreamerServer(
+                n_workers, env_config, controller_config, self.learner.params()
+            )
 
     def act(self, state):
-        done_id = self.server.non_remote.act.remote(self.learner.params(), state)
-        recvs = ray.get(done_id)[0]
-        return recvs
+        if self.use_ray:
+            done_id = self.server.non_remote.act.remote(self.learner.params(), state)
+            recvs = ray.get(done_id)[0]
+            return recvs
+        return self.server.non_remote.act(self.learner.params(), state)
 
     def reset_states(self):
-        self.server.non_remote.reset.remote(self.learner.params())
+        if self.use_ray:
+            self.server.non_remote.reset.remote(self.learner.params())
+        else:
+            self.server.non_remote.reset(self.learner.params())
 
     def eval(self, num_eval_episodes):
 

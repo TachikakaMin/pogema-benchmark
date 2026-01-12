@@ -15,5 +15,6 @@ class MAMBAInferenceConfig(AlgoBase, extra=Extra.forbid):
     training_config: Optional[Any] = None
     custom_path_to_save_gifs: Optional[str] = "./renders"
     use_follower_wrapper: Optional[bool] = True
+    use_ray: bool = False
     env_name: Optional[str] = "benchmark_follower_pogema_env_mazes_random"
     on_target = "restart"

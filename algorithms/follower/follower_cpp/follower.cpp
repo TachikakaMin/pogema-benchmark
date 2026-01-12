@@ -124,7 +124,12 @@ py::class_<Follower>(m, "Follower")
 }
 
 <%
+import os
+onnx_dir = os.path.abspath(os.path.join(filedirname, "..", "..", "mats_lp", "onnxruntime-linux-x64-gpu-1.17.1"))
 cfg['libraries'] = ['onnxruntime']
+cfg['include_dirs'] = [onnx_dir + '/include']
+cfg['library_dirs'] = [onnx_dir + '/lib']
 cfg['extra_compile_args'] = ['-std=c++17']
+cfg['extra_link_args'] = ['-Wl,-rpath,' + onnx_dir + '/lib']
 setup_pybind11(cfg)
 %>

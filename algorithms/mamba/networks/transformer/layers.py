@@ -42,12 +42,15 @@ class AttentionEncoder(nn.Module):
         self.pos_embed = PositionalEncoding(hidden, 256)
         self.encoder = nn.TransformerEncoder(
             nn.TransformerEncoderLayer(
-                d_model=in_dim, nhead=8, dim_feedforward=hidden, dropout=dropout
+                d_model=in_dim,
+                nhead=8,
+                dim_feedforward=hidden,
+                dropout=dropout,
+                batch_first=True,
             ),
             n_layers,
         )
 
     def forward(self, enc_input, **kwargs):
         enc_input = self.pos_embed(enc_input)
-        x = self.encoder(enc_input.permute(1, 0, 2), **kwargs)
-        return x.permute(1, 0, 2)
+        return self.encoder(enc_input, **kwargs)

@@ -138,7 +138,8 @@ PYBIND11_MODULE(mcts, m) {
 }
 
 <%
-onnx_dir = '/home/yimintan/research/WAFR2026/pogema-benchmark/algorithms/mats_lp/onnxruntime-linux-x64-gpu-1.17.1'
+import os
+onnx_dir = os.path.abspath(os.path.join(filedirname, "onnxruntime-linux-x64-gpu-1.17.1"))
 cfg['libraries'] = ['onnxruntime']
 cfg['sources'] = ['MCTSCost2Go.cpp']
 cfg['include_dirs'] = [onnx_dir + '/include']
