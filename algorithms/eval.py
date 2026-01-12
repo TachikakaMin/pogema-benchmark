@@ -17,6 +17,7 @@ from follower.follower_python.preprocessing import follower_preprocessor
 from lacam.inference import LacamInference, LacamInferenceConfig
 from mats_lp.inference import MATS_LPConfig, MATS_LPInference
 from dcc.inference import DCCInference, DCCInferenceConfig
+from sillm.inference import SILLMInference, SILLMInferenceConfig
 
 # Global optimization imports
 from functools import partial
@@ -88,11 +89,12 @@ def main():
     ToolboxRegistry.register_algorithm('LaCAM', LacamInference, LacamInferenceConfig)
     ToolboxRegistry.register_algorithm('MATS-LP', MATS_LPInference, MATS_LPConfig)
     ToolboxRegistry.register_algorithm('DCC', DCCInference, DCCInferenceConfig)
+    ToolboxRegistry.register_algorithm('SILLM', SILLMInference, SILLMInferenceConfig)
     # ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
 
     folder_names = [
-        '01-random',
-        '02-mazes',
+        # '01-random',
+        # '02-mazes',
         '03-warehouse',
         '04-movingai',
         '05-puzzles',

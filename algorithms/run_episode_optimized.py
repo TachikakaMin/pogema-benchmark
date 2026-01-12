@@ -192,7 +192,9 @@ def run_episode_with_optimization(
             opt_elapsed_time = time.time() - opt_start_time
 
             # Apply actions to get optimized trajectory
-            M_opt = apply_actions_to_trajectory(M, chosen_actions)
+            # Use M_preprocessed as base (actions are relative to preprocessed trajectory)
+            M_base = summary.get('M_preprocessed', M)
+            M_opt = apply_actions_to_trajectory(M_base, chosen_actions)
 
             # Validate optimized trajectory
             if obstacles is not None:
