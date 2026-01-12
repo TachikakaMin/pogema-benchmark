@@ -117,8 +117,9 @@ class FollowerWrapper(ObservationWrapper):
             obs = observations[k]
 
             # Check if there is no valid path available.
-            if path is None:
+            if path is None or len(path) == 0:
                 new_goals.append(obs['target_xy'])  # Use the target position as a new goal.
+                intrinsic_rewards.append(0.0)  # No intrinsic reward when no valid path
                 path = []
             else:
                 # Check if the agent reached their subgoal from its previous step
@@ -126,7 +127,8 @@ class FollowerWrapper(ObservationWrapper):
                 # Assign an intrinsic reward if conditions are met, otherwise set it to 0.
                 intrinsic_rewards.append(self._cfg.intrinsic_target_reward if subgoal_achieved else 0.0)
                 # Select a new target point.
-                new_goals.append(path[1])
+                # If path has only 1 element (agent at goal), use that; otherwise use next step
+                new_goals.append(path[1] if len(path) > 1 else path[0])
 
             # Set obstacle values to -1.0 in the observation.
             obs['obstacles'][obs['obstacles'] > 0] *= -1

@@ -11,6 +11,7 @@ from follower.follower_python.training_config import Experiment
 from follower.follower_python.register_env import register_custom_components
 
 import os
+os.environ.setdefault("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", "1")
 from argparse import Namespace
 from collections import OrderedDict
 from os.path import join
@@ -25,6 +26,11 @@ except ImportError:
     from typing_extensions import Literal
 
 import torch
+try:
+    import torch.serialization as torch_serialization
+    torch_serialization.add_safe_globals([np.core.multiarray.scalar, np.dtype])
+except Exception:
+    pass
 from sample_factory.utils.utils import log
 from pydantic import Extra, validator
 

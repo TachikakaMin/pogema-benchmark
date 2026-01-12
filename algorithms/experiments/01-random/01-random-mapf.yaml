@@ -5,11 +5,11 @@ algorithms:
   #   name: SCRIMP
   # DCC: # requires obs_radius: 4 in environment
   #  name: DCC
-  Follower:
-    name: Follower
-  MAMBA:
-    name: MAMBA
-    device: "cuda"
+  # Follower:
+  #   name: Follower
+  # MAMBA:
+  #   name: MAMBA
+  #   device: "cuda"
   SILLM:
     name: SILLM
     model_path: "Scalable-Imitation-Learning-for-LMAPF/pretrained_models/backward_dijkstra/v3/RL/warehouse/best"

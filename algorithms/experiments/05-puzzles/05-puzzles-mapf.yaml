@@ -9,6 +9,7 @@ algorithms:
     name: Follower
   MAMBA:
     name: MAMBA
+    device: "cuda"
 environment:
   collision_system: soft
   map_name:

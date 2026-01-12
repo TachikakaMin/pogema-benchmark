@@ -5,10 +5,11 @@ algorithms:
   #   name: SCRIMP
   # DCC: # requires obs_radius: 4 in environment
   #  name: DCC
-  Follower:
-    name: Follower
+  # Follower:
+  #   name: Follower
   MAMBA:
     name: MAMBA
+    device: "cuda"
 environment:
   collision_system: soft
   map_name:
