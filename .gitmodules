@@ -1,3 +1,6 @@
 [submodule "algorithms/Scalable-Imitation-Learning-for-LMAPF"]
 	path = algorithms/Scalable-Imitation-Learning-for-LMAPF
 	url = https://github.com/TachikakaMin/Scalable-Imitation-Learning-for-LMAPF
+[submodule "algorithms/foundation_mapf"]
+	path = algorithms/foundation_mapf
+	url = https://github.com/TachikakaMin/foundation_mapf.git
