@@ -5,11 +5,19 @@ algorithms:
   #   name: SCRIMP
   # DCC: # requires obs_radius: 4 in environment
   #  name: DCC
-  Follower:
-    name: Follower
-  MAMBA:
-    name: MAMBA
+  # Follower:
+  #   name: Follower
+  # MAMBA:
+  #   name: MAMBA
+  #   device: "cuda"
+  RAILGUN:
+    name: FoundationMAPF
+    model_path: "foundation_mapf/model_checkpoint_epoch_4.pth"
     device: "cuda"
+    # 可选参数:
+    feature_dim: 6
+    feature_type: "gradient"
+    action_choice: "sample"
 environment:
   collision_system: soft
   map_name:

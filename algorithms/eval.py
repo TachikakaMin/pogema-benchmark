@@ -25,6 +25,7 @@ from sillm.inference import SILLMInference, SILLMInferenceConfig
 from mamba.inference.inference_config import MAMBAInferenceConfig
 from mamba.inference.utils import MAMBAInference
 from mamba.preprocessing import mamba_preprocessor
+from foundation_mapf_wrapper.inference import FoundationMAPFInference, FoundationMAPFInferenceConfig
 
 # Global optimization imports
 from functools import partial
@@ -98,13 +99,14 @@ def main():
     ToolboxRegistry.register_algorithm('DCC', DCCInference, DCCInferenceConfig)
     ToolboxRegistry.register_algorithm('SILLM', SILLMInference, SILLMInferenceConfig)
     ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
+    ToolboxRegistry.register_algorithm('FoundationMAPF', FoundationMAPFInference, FoundationMAPFInferenceConfig)
 
     folder_names = [
         # '01-random',
         # '02-mazes',
-        '03-warehouse',
+        # '03-warehouse',
         # '04-movingai',
-        # '05-puzzles',
+        '05-puzzles',
     ]
 
     # if MODE == "mapf":

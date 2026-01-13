@@ -10,10 +10,18 @@ algorithms:
   # MAMBA:
   #   name: MAMBA
   #   device: "cuda"
-  SILLM:
-    name: SILLM
-    model_path: "Scalable-Imitation-Learning-for-LMAPF/pretrained_models/backward_dijkstra/v3/RL/warehouse/best"
+  # SILLM:
+  #   name: SILLM
+  #   model_path: "Scalable-Imitation-Learning-for-LMAPF/pretrained_models/backward_dijkstra/v3/RL/warehouse/best"
+  #   device: "cuda"
+  RAILGUN:
+    name: FoundationMAPF
+    model_path: "foundation_mapf/model_checkpoint_epoch_4.pth"
     device: "cuda"
+    # 可选参数:
+    feature_dim: 6
+    feature_type: "gradient"
+    action_choice: "sample"
 environment:
   collision_system: soft
   map_name: wfi_warehouse
