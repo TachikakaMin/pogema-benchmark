@@ -100,8 +100,8 @@ def main():
     ToolboxRegistry.register_algorithm("MAMBA", MAMBAInference, MAMBAInferenceConfig, mamba_preprocessor)
 
     folder_names = [
-        '01-random',
-        '02-mazes',
+        # '01-random',
+        # '02-mazes',
         '03-warehouse',
         # '04-movingai',
         # '05-puzzles',
