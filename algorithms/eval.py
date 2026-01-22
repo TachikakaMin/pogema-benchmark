@@ -103,10 +103,10 @@ def main():
 
     folder_names = [
         # '01-random',
-        # '02-mazes',
+        '02-mazes',
         # '03-warehouse',
         # '04-movingai',
-        '05-puzzles',
+        # '05-puzzles',
     ]
 
     # if MODE == "mapf":

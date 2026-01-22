@@ -178,6 +178,10 @@ class FoundationMAPFInference:
         # Random seed counter for C++ extension
         self._seed_counter = 0
 
+        # Padding offsets for small maps
+        self._pad_x = 0
+        self._pad_y = 0
+
     def _get_distance(self, agent_loc: tuple, goal_loc: tuple) -> int:
         """Get distance from agent location to goal location."""
         ax, ay = int(agent_loc[0]), int(agent_loc[1])
@@ -351,6 +355,30 @@ class FoundationMAPFInference:
 
         return actions
 
+    def _pad_map_to_min_size(self, map_array: np.ndarray, min_size: int = 16) -> tuple:
+        """
+        Pad map with obstacles if it's smaller than min_size.
+        Returns (padded_map, pad_x, pad_y) where pad_x/pad_y are the offsets.
+        """
+        height, width = map_array.shape
+        if height >= min_size and width >= min_size:
+            return map_array, 0, 0
+
+        new_height = max(height, min_size)
+        new_width = max(width, min_size)
+
+        # Create new map filled with obstacles (1.0)
+        padded_map = np.ones((new_height, new_width), dtype=np.float32)
+
+        # Calculate padding offsets (center the original map)
+        pad_x = (new_height - height) // 2
+        pad_y = (new_width - width) // 2
+
+        # Copy original map to center
+        padded_map[pad_x:pad_x+height, pad_y:pad_y+width] = map_array
+
+        return padded_map, pad_x, pad_y
+
     def act(self, observations, rewards=None, dones=None, info=None, skip_agents=None):
         """
         Compute actions for all agents.
@@ -363,7 +391,10 @@ class FoundationMAPFInference:
 
             # Get map from pogema and transpose to foundation_mapf format
             pogema_map = np.array(observations[0]['global_obstacles'])
-            self.map_array = np.ascontiguousarray(pogema_map.T, dtype=np.float32)
+            raw_map = np.ascontiguousarray(pogema_map.T, dtype=np.float32)
+
+            # Pad map if too small for UNet (minimum 16x16)
+            self.map_array, self._pad_x, self._pad_y = self._pad_map_to_min_size(raw_map, min_size=16)
 
             # Cache map tensor on GPU
             self.map_tensor = torch.from_numpy(self.map_array).to(self.device)
@@ -383,14 +414,16 @@ class FoundationMAPFInference:
             self._agent_goals_t = torch.zeros((num_agents, 2), dtype=torch.long, device=self.device)
 
         # Convert pogema coordinates to foundation_mapf coordinates
+        # Add padding offset if map was padded
         agent_positions_list = []
         agent_goals_list = []
 
         for obs in observations:
             row, col = obs['global_xy']
             target_row, target_col = obs['global_target_xy']
-            agent_positions_list.append([col, row])
-            agent_goals_list.append([target_col, target_row])
+            # Apply padding offset: foundation_mapf uses (x=col, y=row)
+            agent_positions_list.append([col + self._pad_x, row + self._pad_y])
+            agent_goals_list.append([target_col + self._pad_x, target_row + self._pad_y])
 
         # Update pre-allocated tensors in-place
         agent_positions_np = np.array(agent_positions_list, dtype=np.int64)
@@ -437,6 +470,8 @@ class FoundationMAPFInference:
         self.feature = None
         self._agent_positions_t = None
         self._agent_goals_t = None
+        self._pad_x = 0
+        self._pad_y = 0
 
     def after_step(self, dones):
         """Called after each step."""
