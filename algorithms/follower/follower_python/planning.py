@@ -8,7 +8,7 @@ from follower.follower_cpp.planner import planner
 from pydantic import BaseModel
 
 try:
-    from typing import Literal
+    from typing_extensions import Literal
 except ImportError:
     from typing_extensions import Literal
 

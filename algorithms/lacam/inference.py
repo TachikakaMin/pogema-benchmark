@@ -1,6 +1,6 @@
 import ctypes
 import numpy as np
-from typing import Literal
+from typing_extensions import Literal
 from pydantic import Extra
 from pogema_toolbox.algorithm_config import AlgoBase
 

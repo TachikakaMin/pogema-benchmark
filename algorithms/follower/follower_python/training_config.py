@@ -4,7 +4,7 @@ from follower.follower_python.model import EncoderConfig
 from follower.follower_python.preprocessing import PreprocessorConfig
 
 try:
-    from typing import Literal
+    from typing_extensions import Literal
 except ImportError:
     from typing_extensions import Literal
 

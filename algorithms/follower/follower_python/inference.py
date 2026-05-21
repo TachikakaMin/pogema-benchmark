@@ -21,7 +21,7 @@ import numpy as np
 from typing import Optional
 
 try:
-    from typing import Literal
+    from typing_extensions import Literal
 except ImportError:
     from typing_extensions import Literal
 

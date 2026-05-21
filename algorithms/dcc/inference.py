@@ -1,4 +1,5 @@
-from typing import Optional, Literal
+from typing import Optional
+from typing_extensions import Literal
 from pydantic import BaseModel
 from pydantic import Extra
 from pogema_toolbox.algorithm_config import AlgoBase

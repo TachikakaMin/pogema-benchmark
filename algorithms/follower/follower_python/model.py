@@ -1,5 +1,5 @@
 from argparse import Namespace
-from typing import Literal
+from typing_extensions import Literal
 
 import torch
 from pydantic import BaseModel
