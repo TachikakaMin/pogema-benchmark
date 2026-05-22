@@ -180,7 +180,11 @@ def run_episode_with_optimization(
             import time
             import pickle
             import os
-            from opt_main import solve_collapsed_mapf_from_M, apply_actions_to_trajectory
+            from opt_main import (
+                solve_collapsed_mapf_from_M,
+                solve_greedy_length_baseline_from_M,
+                apply_actions_to_trajectory,
+            )
 
             # Compute original move-only SoC
             original_move_soc = compute_move_only_soc(M)
@@ -230,6 +234,39 @@ def run_episode_with_optimization(
                 summary.get('num_excl_cross', 0) +
                 summary.get('num_deps_raw', 0) +
                 summary.get('num_invalid', 0)
+            )
+
+            # Run greedy length-ordered collapse baseline on the same trajectory.
+            greedy_start_time = time.time()
+            greedy_summary, greedy_actions = solve_greedy_length_baseline_from_M(
+                M,
+                verbose=optimization_config.get('verbose', False),
+                preprocess_oscillations=optimization_config.get('preprocess_oscillations', True),
+            )
+            greedy_elapsed_time = time.time() - greedy_start_time
+            M_greedy = greedy_summary.get('M_greedy')
+
+            if obstacles is not None and M_greedy is not None:
+                greedy_valid = validate_trajectory_quick(M_greedy, obstacles)
+                results['greedy_length_trajectory_valid'] = 1 if greedy_valid else 0
+            else:
+                results['greedy_length_trajectory_valid'] = -1
+
+            greedy_actual_soc = compute_move_only_soc(M_greedy) if M_greedy is not None else int(greedy_summary['best_min_cost'])
+            results['greedy_length_actual_soc'] = greedy_actual_soc
+            results['greedy_length_soc_mismatch'] = 1 if greedy_actual_soc != int(greedy_summary['best_min_cost']) else 0
+            results['greedy_length_optimization_time'] = greedy_elapsed_time
+            results['greedy_length_optimized_move_soc'] = int(greedy_summary['best_min_cost'])
+            results['greedy_length_move_soc_saving'] = original_move_soc - int(greedy_summary['best_min_cost'])
+            results['greedy_length_num_actions_chosen'] = len(greedy_actions)
+            results['greedy_length_num_actions'] = greedy_summary.get('num_actions', 0)
+            results['greedy_length_num_skipped_overlap'] = greedy_summary.get('num_skipped_overlap', 0)
+            results['greedy_length_num_skipped_collision'] = greedy_summary.get('num_skipped_collision', 0)
+            results['greedy_length_vs_ilp_saving_gap'] = (
+                results['move_soc_saving'] - results['greedy_length_move_soc_saving']
+            )
+            results['greedy_length_optimality_gap'] = (
+                results['optimized_move_soc'] - results['greedy_length_optimized_move_soc']
             )
 
             # Decode optimization status to human-readable string (for logging only, not in results)
